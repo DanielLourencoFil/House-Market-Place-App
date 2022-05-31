@@ -1,0 +1,14 @@
+.navbar-container {
+	position: fixed;
+	height: 15vh;
+	bottom: 0;
+	background-color: var(--color-light-100);
+}
+.navbar-center {
+	margin: 0 auto;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	font-size: 2rem;
+}

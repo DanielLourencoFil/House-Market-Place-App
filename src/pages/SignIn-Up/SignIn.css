@@ -1,0 +1,121 @@
+.sign-wrapper {
+	/* min-height: 100vh; */
+	width: 90%;
+	max-width: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* justify-content: center; */
+	justify-content: flex-start;
+	margin: 0 auto;
+	margin-top: 15vh;
+}
+
+.sign-input {
+	align-items: center;
+}
+
+.sign-input input {
+	font-size: 1.2rem;
+	letter-spacing: var(--spacing-1);
+	border: none;
+	width: 90%;
+	height: 100%;
+	outline: none;
+}
+.sign-input input::placeholder {
+	color: var(--color-grey-100);
+}
+.eye-icon-wrapper {
+	position: relative;
+}
+.eye-icon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	visibility: hidden;
+	z-index: -1;
+	cursor: pointer;
+}
+.eye-icon.active {
+	z-index: 1;
+	visibility: visible;
+}
+.forgot-password {
+	background-color: transparent;
+	border: none;
+	font-size: 1rem;
+	align-self: flex-end;
+	color: var(--color-secondary-500);
+	letter-spacing: var(--spacing-1);
+}
+.signin-up-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.signin-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1.5rem;
+	width: 10rem;
+	padding: 1rem;
+	border: none;
+	background-color: transparent;
+	font-size: 1.325rem;
+	font-weight: 700;
+	letter-spacing: var(--spacing-2);
+}
+
+.signin-btn-icon {
+	font-size: 2.5rem;
+	color: var(--color-secondary-500);
+	will-change: contents;
+	transition: transform 0.5s;
+}
+.sign-up-btn {
+	background-color: transparent;
+	border: transparent;
+	font-size: 1rem;
+	padding: 0.35rem 0;
+	color: var(--color-grey-500);
+	border-radius: var(--radius-2);
+	letter-spacing: var(--spacing-1);
+	transition: all 0.5s;
+}
+.sign-up-btn:hover {
+	padding: 0.35rem 1rem;
+	border: 1px solid var(--color-grey-500);
+}
+.signin-alternative {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+.signin-alternative-btn {
+	border: none;
+	background-color: transparent;
+	will-change: contents;
+	transition: transform 0.5s;
+}
+.signin-alternative-btn img {
+	width: 2.5rem;
+}
+.error-msg {
+	position: absolute;
+	top: -1.3rem;
+	font-size: 0.825rem;
+	color: var(--color-alert);
+}
+@media (min-width: 800px) {
+	.signin-alternative-btn:hover {
+		transform: scale(1.2);
+	}
+	.signin-btn-icon:hover {
+		transform: scale(1.2);
+	}
+}

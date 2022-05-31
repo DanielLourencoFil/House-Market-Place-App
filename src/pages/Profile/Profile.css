@@ -1,0 +1,63 @@
+.profile-header {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.log-out-btn {
+	color: var(--color-light-100);
+	background-color: var(--color-secondary-500);
+	padding: 0.35rem 1rem;
+	border: transparent;
+	border-radius: var(--radius-2);
+	font-size: 1rem;
+	text-transform: capitalize;
+	letter-spacing: var(--spacing-1);
+}
+/* profile user details form */
+.personal-details-form {
+}
+.user-details-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+}
+.user-details {
+	display: flex;
+	flex-direction: column;
+}
+.user-details input {
+	width: 95%;
+	align-self: flex-start;
+	border-radius: var(--radius-2);
+	padding: 0.35rem 0.5rem;
+	border: transparent;
+	margin: 0 auto;
+	transition: all 0.3s;
+}
+.user-details input:focus {
+	outline: 1px solid var(--color-grey-100);
+}
+.user-details input:disabled {
+	background-color: inherit;
+}
+.user-details input:enabled {
+	background-color: var(--color-primary-100);
+}
+#displayName {
+	font-size: 1rem;
+	font-weight: 700;
+}
+.cancel-btn {
+	background-color: transparent;
+	border: none;
+	font-size: 1rem;
+	align-self: flex-end;
+	color: var(--color-alert);
+	letter-spacing: var(--spacing-1);
+}
+.profile-btn-wrapper {
+	display: flex;
+	gap: 1rem;
+}
