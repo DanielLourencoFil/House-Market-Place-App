@@ -10,21 +10,27 @@ function Navbar() {
 			<div className="section-center navbar-center">
 				<NavLink
 					to="/"
-					className={({ isActive }) => (isActive ? "active" : "inactive")}
+					className={`navlinks ${({ isActive }) =>
+						isActive ? "active" : "inactive"}`}
 				>
 					<MdOutlineExplore />
+					<p>Explore</p>
 				</NavLink>
 				<NavLink
-					to="/offers"
-					className={({ isActive }) => (isActive ? "active" : "inactive")}
+					to="/category/offers"
+					className={`navlinks ${({ isActive }) =>
+						isActive ? "active" : "inactive"}`}
 				>
 					<MdOutlineLocalOffer />
+					<p>Offers</p>
 				</NavLink>
 				<NavLink
 					to="/profile"
-					className={({ isActive }) => (isActive ? "active" : "inactive")}
+					className={`navlinks ${({ isActive }) =>
+						isActive ? "active" : "inactive"}`}
 				>
 					<HiOutlineUser />
+					<p>Profile</p>
 				</NavLink>
 			</div>
 		</nav>

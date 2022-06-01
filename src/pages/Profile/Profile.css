@@ -61,3 +61,6 @@
 	display: flex;
 	gap: 1rem;
 }
+.sell-rent-btn {
+	width: 95%;
+}

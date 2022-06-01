@@ -134,8 +134,8 @@ export default function Profile() {
 							></input>
 						</div>
 					</form>
-					<Link to="/">
-						<button className="field-wrapper generic-btn-01">
+					<Link to="/create-listing">
+						<button className="field-wrapper generic-btn-01 sell-rent-btn">
 							<HiHome />
 							Sell or rent your home <FiChevronRight />
 						</button>

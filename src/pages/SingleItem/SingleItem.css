@@ -1,0 +1,40 @@
+.single-item-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+.single-item-name {
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+.single-item-location {
+	font-size: 1rem;
+	font-weight: 700;
+}
+.single-item-btns-wrapper {
+	display: flex;
+	gap: 2rem;
+}
+.single-item-btn {
+	font-weight: 700;
+	padding: 0.35rem;
+	border-radius: 1rem;
+	color: var(--color-light-100);
+	letter-spacing: var(--spacing-1);
+	background-color: var(--color-dark-900);
+}
+.single-item-btn:first-child {
+	background-color: var(--color-secondary-500);
+}
+.single-item- {
+}
+.single-item-contact-btn {
+	width: 50%;
+	height: 30px;
+	margin: 0 auto;
+	justify-content: center;
+	background-color: var(--color-secondary-500);
+	border-radius: 1rem;
+	color: var(--color-light-100);
+	letter-spacing: var(--spacing-2);
+}

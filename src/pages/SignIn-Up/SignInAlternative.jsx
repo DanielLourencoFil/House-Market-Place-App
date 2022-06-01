@@ -4,6 +4,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { db } from "../../firebase.config";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { doc, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
+import GoogleIcon from "../../assets/icons/google-icon.png";
+
 //toastify
 import { toast } from "react-toastify";
 
@@ -53,7 +55,7 @@ function SignInAlternative() {
 				className="signin-alternative-btn"
 				onClick={(e) => alternativeSignIn(e)}
 			>
-				<img src={"./images/google-icon.png"} alt="google-icon" />
+				<img src={GoogleIcon} alt="google-icon" />
 			</button>
 		</div>
 	);
