@@ -6,6 +6,7 @@ import ForgotPassword from "./ForgotPassword/ForgotPassword";
 import Category from "./Category/Category";
 import CreateItem from "./CreateItem/CreateItem";
 import SingleItem from "./SingleItem/SingleItem";
+import NotFound from "./NotFound/NotFound";
 
 export {
 	Explore,
@@ -16,4 +17,5 @@ export {
 	Category,
 	CreateItem,
 	SingleItem,
+	NotFound,
 };

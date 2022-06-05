@@ -1,0 +1,7 @@
+.share-icon {
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+	color: var(--color-light-100);
+	font-size: 1.1rem;
+}

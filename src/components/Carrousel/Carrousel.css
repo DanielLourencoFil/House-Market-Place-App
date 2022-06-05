@@ -1,4 +1,5 @@
 .slider {
+	position: relative;
 	height: 35vh;
 	background-color: aquamarine;
 }

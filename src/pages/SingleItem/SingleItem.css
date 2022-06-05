@@ -26,15 +26,3 @@
 .single-item-btn:first-child {
 	background-color: var(--color-secondary-500);
 }
-.single-item- {
-}
-.single-item-contact-btn {
-	width: 50%;
-	height: 30px;
-	margin: 0 auto;
-	justify-content: center;
-	background-color: var(--color-secondary-500);
-	border-radius: 1rem;
-	color: var(--color-light-100);
-	letter-spacing: var(--spacing-2);
-}

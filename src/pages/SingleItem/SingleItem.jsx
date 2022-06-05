@@ -7,28 +7,8 @@ import { db } from "../../firebase.config";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { toast } from "react-toastify";
 
-// const item = {
-// 	name: "Beautiful Stratford Condo",
-// 	type: "rent",
-// 	userRef: "ID OF A USER",
-// 	bedrooms: 2,
-// 	bathrooms: 2,
-// 	parking: true,
-// 	furnished: true,
-// 	offer: true,
-// 	regularPrice: 2500,
-// 	discountedPrice: 2000,
-// 	location: "8601 West Peachtree St Stratford, CT 06614",
-// 	geolocation: {
-// 		lat: "41.205590",
-// 		lng: "-73.150530",
-// 	},
-// 	imgUrls: [],
-// 	timestamp: "00:00:00",
-// };
-
 function SingleItem() {
-	const { id } = useParams();
+	const { categoryName, id } = useParams();
 	const [item, setItem] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -37,14 +17,16 @@ function SingleItem() {
 			try {
 				const itemRef = collection(db, "listings");
 				// Create a query against the collection.
-				const q = query(itemRef, where("userRef", "==", id));
+				const q = query(itemRef, where("type", "==", categoryName));
 
 				const itemsFromCollection = {};
 
 				const queryShapshop = await getDocs(q);
 				queryShapshop.forEach((item) => {
-					itemsFromCollection.id = item.id;
-					itemsFromCollection.data = item.data();
+					if (item.id === id) {
+						itemsFromCollection.id = item.id;
+						itemsFromCollection.data = item.data();
+					}
 				});
 				setItem(itemsFromCollection);
 				setIsLoading(false);
@@ -55,7 +37,6 @@ function SingleItem() {
 		};
 		fetch();
 	}, []);
-	console.log(item);
 	if (isLoading) {
 		return <Spinner />;
 	} else {
@@ -81,9 +62,11 @@ function SingleItem() {
 					<h4 className="single-item-location">{location}</h4>
 					<div className="single-item-btns-wrapper">
 						<p className="single-item-btn">For {type}</p>
-						<p className="single-item-btn">
-							${discountedPrice.toLocaleString("en-US")}
-						</p>
+						{discountedPrice && (
+							<p className="single-item-btn">
+								${discountedPrice?.toLocaleString("en-US")}
+							</p>
+						)}
 					</div>
 					<p className="more-features">{bedrooms} Bedrooms</p>
 					<p className="more-features">{bathrooms} Bathrooms</p>

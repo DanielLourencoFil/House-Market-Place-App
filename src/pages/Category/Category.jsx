@@ -28,6 +28,7 @@ function Category() {
 				//create reference to places collection
 				const itemsRef = collection(db, "listings");
 				//create a querry (order) agains te collection
+				console.log(categoryName);
 				let q;
 				if (categoryName === "offers") {
 					q = query(
@@ -93,7 +94,7 @@ function Category() {
 								Sorry, no {title()} in our database
 							</h1>
 						) : (
-							<ItemsCard items={items} categoryName={categoryName} />
+							<ItemsCard items={items} />
 						)}
 
 						<button className="load-more-btn" onClick={loadMoreItems}>
@@ -106,7 +107,7 @@ function Category() {
 	);
 }
 
-const ItemsCard = ({ items, categoryName }) => {
+const ItemsCard = ({ items }) => {
 	return (
 		<div className="items-wrapper">
 			{items.map((item) => {
@@ -123,7 +124,7 @@ const ItemsCard = ({ items, categoryName }) => {
 					offer,
 				} = item.place;
 				return (
-					<Link to={`${userRef}`}>
+					<Link to={`${item.id}`}>
 						<div key={item.id} className="item-card field-wrapper">
 							<img src={imgUrls[0]} alt={name} className="item-img" />
 							<div className="item-info-wrapper">

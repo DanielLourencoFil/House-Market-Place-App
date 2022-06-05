@@ -1,0 +1,6 @@
+.not-found-page h1 {
+	text-align: center;
+	margin-top: 10rem;
+	font-size: 1.5rem;
+	color: var(--color-alert);
+}

@@ -10,6 +10,7 @@ import {
 	Category,
 	CreateItem,
 	SingleItem,
+	NotFound,
 } from "./pages";
 import { Navbar, PrivateRoute, Spinner } from "./components";
 
@@ -48,6 +49,7 @@ function App() {
 						<Route exact path="/sign-in" element={<SignIn />} />
 						<Route exact path="/sign-up" element={<SignUp />} />
 						<Route exact path="/forgot-password" element={<ForgotPassword />} />
+						<Route path="/*" element={<NotFound />} />
 					</Routes>
 				)}
 				<Navbar />

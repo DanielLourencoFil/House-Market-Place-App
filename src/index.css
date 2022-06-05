@@ -46,12 +46,17 @@ button {
 input {
 	border: none;
 }
+input:disabled {
+	background-color: inherit;
+	border: 1px solid var(--color-grey-300);
+}
 .main-section {
 	width: 100vw;
 }
 .section-center {
 	margin: 0 auto;
-	margin-bottom: 15vh;
+	margin-top: 5vh;
+	margin-bottom: 20vh;
 	width: 90%;
 	max-width: 1000px;
 }
@@ -121,4 +126,14 @@ input {
 	font-size: 1.5rem;
 }
 .generic-btn-02 {
+	width: 50%;
+	padding: 1rem 0;
+	margin: 0 auto;
+	font-size: 1.25rem;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--color-secondary-500);
+	border-radius: 1rem;
+	color: var(--color-light-100);
+	letter-spacing: var(--spacing-2);
 }
