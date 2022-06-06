@@ -8,27 +8,21 @@ function Navbar() {
 	return (
 		<nav className="main-section navbar-container">
 			<div className="section-center navbar-center">
-				<NavLink
-					to="/"
-					className={`navlinks ${({ isActive }) =>
-						isActive ? "active" : "inactive"}`}
-				>
+				<NavLink to="/" className={`navlinks`} activeclassname="active">
 					<MdOutlineExplore />
 					<p>Explore</p>
 				</NavLink>
+
 				<NavLink
 					to="/category/offers"
-					className={`navlinks ${({ isActive }) =>
-						isActive ? "active" : "inactive"}`}
+					className={`navlinks`}
+					activeclassname="active"
 				>
 					<MdOutlineLocalOffer />
 					<p>Offers</p>
 				</NavLink>
-				<NavLink
-					to="/profile"
-					className={`navlinks ${({ isActive }) =>
-						isActive ? "active" : "inactive"}`}
-				>
+
+				<NavLink to="/profile" className={`navlinks`} activeclassname="active">
 					<HiOutlineUser />
 					<p>Profile</p>
 				</NavLink>
@@ -38,3 +32,5 @@ function Navbar() {
 }
 
 export default Navbar;
+/*	className={`navlinks ${({ isActive }) =>
+						isActive ? "active" : "inactive"}`} */

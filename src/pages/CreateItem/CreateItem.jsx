@@ -204,9 +204,13 @@ function CreateItem() {
 			...newItem,
 			imgUrls,
 			geolocation: { lat: latitude, lng: longitude },
+
 			timestamp: serverTimestamp(),
 		};
 		delete newItemCopy.images;
+		delete newItemCopy.latitude;
+		delete newItemCopy.longitude;
+
 		!newItemCopy.discountedPrice && delete newItemCopy.discountedPrice;
 
 		const docRef = await addDoc(collection(db, "listings"), newItemCopy);

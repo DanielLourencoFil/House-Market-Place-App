@@ -3,10 +3,10 @@ import ShareIcon from "../ShareIcon/ShareIcon";
 
 import React from "react";
 
-function Carrousel() {
+function Carrousel({ cb }) {
 	return (
 		<div className="slider">
-			<ShareIcon />
+			<ShareIcon cb={cb} />
 		</div>
 	);
 }

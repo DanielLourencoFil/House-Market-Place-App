@@ -25,6 +25,7 @@ function App() {
 					<Routes>
 						<Route exact path="/" element={<Explore />} />
 						<Route path="/category/:categoryName" element={<Category />} />
+						{/* <Route path="/category/:categoryName" element={<Category />} /> */}
 						<Route
 							path="/category/:categoryName/:id"
 							element={<SingleItem />}

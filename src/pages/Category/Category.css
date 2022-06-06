@@ -19,9 +19,9 @@
 }
 .item-img {
 	width: 50%;
-	height: 125px;
+	height: 150px;
 	object-fit: cover;
-	object-position: center;
+	object-position: 50% 80%;
 	border-radius: 1rem;
 }
 .item-info-wrapper {

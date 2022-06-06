@@ -28,27 +28,29 @@ function Category() {
 				//create reference to places collection
 				const itemsRef = collection(db, "listings");
 				//create a querry (order) agains te collection
-				console.log(categoryName);
+				console.log(itemsRef);
 				let q;
 				if (categoryName === "offers") {
 					q = query(
 						itemsRef,
 						where("offer", "==", true),
 						limit(10),
-						orderBy("timeStamp", "desc")
+						orderBy("timestamp", "desc")
 					);
 				} else {
 					q = query(
 						itemsRef,
 						where("type", "==", categoryName),
-						limit(10),
-						orderBy("timeStamp", "desc")
+						orderBy("timestamp", "desc"),
+						limit(10)
 					);
 				}
+				console.log(q);
 				//create an empty array to push items from collection
 				const itemsFromCollection = [];
 				const querrySnapshot = await getDocs(q);
 				querrySnapshot.forEach((doc) => {
+					console.log(doc);
 					itemsFromCollection.push({
 						id: doc.id,
 						place: doc.data(),
@@ -67,7 +69,8 @@ function Category() {
 			}
 		};
 		fetch();
-	}, []);
+	}, [categoryName]);
+	console.log(items);
 
 	const loadMoreItems = () => {
 		console.log("load more btn");

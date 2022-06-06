@@ -13,11 +13,14 @@ function SingleItem() {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
+		console.log(id, categoryName);
 		const fetch = async () => {
+			const feature = categoryName === "offers" ? "offer" : "type";
+			const category = categoryName === "offers" ? true : categoryName;
 			try {
 				const itemRef = collection(db, "listings");
 				// Create a query against the collection.
-				const q = query(itemRef, where("type", "==", categoryName));
+				const q = query(itemRef, where(feature, "==", category));
 
 				const itemsFromCollection = {};
 
@@ -37,6 +40,7 @@ function SingleItem() {
 		};
 		fetch();
 	}, []);
+	console.log(item);
 	if (isLoading) {
 		return <Spinner />;
 	} else {
@@ -57,7 +61,7 @@ function SingleItem() {
 				<div className="section-center single-item-wrapper">
 					<Carrousel />
 					<h1 className="single-item-name">
-						{name} - ${regularPrice.toLocaleString("en-US")}
+						{name} - ${regularPrice?.toLocaleString("en-US")}
 					</h1>
 					<h4 className="single-item-location">{location}</h4>
 					<div className="single-item-btns-wrapper">
