@@ -1,11 +1,11 @@
 import "./Spinner.css";
 
-function Spinner() {
+function Spinner({ title }) {
 	return (
 		<div className="items-center spinner-bg">
 			<div className="spinner-container">
 				<div className="spinner-circle"></div>
-				<p>Loading</p>
+				<p>{title ? title : "Loading"}</p>
 			</div>
 		</div>
 	);

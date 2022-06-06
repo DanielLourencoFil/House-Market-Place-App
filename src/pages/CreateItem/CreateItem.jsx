@@ -54,7 +54,7 @@ function CreateItem() {
 		images: {},
 	};
 	const [newItem, setNewItem] = useState(formData);
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
 	const [isGeoloactionEnabled, setIsGeoloacationEnabled] = useState(false);
 	const auth = getAuth();
 
@@ -149,8 +149,10 @@ function CreateItem() {
 		} catch (error) {
 			console.log(error);
 		}
-		//Sotareg images firebase
+		//Storage images firebase
 		const storeImage = async (image) => {
+			console.log(image.name, auth.currentUser.uid, uuidv4());
+
 			return new Promise((resolve, reject) => {
 				const storage = getStorage();
 				const fileName = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`;
@@ -165,6 +167,7 @@ function CreateItem() {
 						const progress =
 							(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 						console.log("Upload is " + progress + "% done");
+						// toast.success("Upload is " + progress + "% done");
 						switch (snapshot.state) {
 							case "paused":
 								console.log("Upload is paused");
@@ -219,8 +222,10 @@ function CreateItem() {
 		navigate(`/category/${newItemCopy.type}/${docRef.id}`);
 		console.log(newItemCopy);
 	};
-
-	// console.log(;
+	console.log(images);
+	if (isLoading) {
+		return <Spinner title={"Uploading"} />;
+	}
 	return (
 		<main className="main-section">
 			<div className="section-center listings">
