@@ -15,7 +15,7 @@ export const data = [
 			lat: "41.205590",
 			lng: "-73.150530",
 		},
-		imageUrls: [],
+		imgUrls: ["../images/house-images/exterior_1.jpeg"],
 		timestamp: "00:00:00",
 	},
 	{
@@ -33,7 +33,7 @@ export const data = [
 			lat: "34.1851",
 			lng: "-83.9252",
 		},
-		imageUrls: [],
+		imgUrls: ["../images/house-images/exterior_2.jpeg"],
 		timestamp: "00:00:00",
 	},
 	{
@@ -52,7 +52,7 @@ export const data = [
 			lat: "39.144320",
 			lng: "-84.569630",
 		},
-		imageUrls: [],
+		imgUrls: ["../images/house-images/exterior_3.jpeg"],
 		timestamp: "00:00:00",
 	},
 	{
@@ -71,7 +71,7 @@ export const data = [
 			lat: "35.628690",
 			lng: "-78.455520",
 		},
-		imageUrls: [],
+		imgUrls: ["../images/house-images/exterior_4.jpeg"],
 		timestamp: "00:00:00",
 	},
 	{
@@ -89,7 +89,7 @@ export const data = [
 			lat: "42.247270",
 			lng: "-71.053470",
 		},
-		imageUrls: [],
+		imgUrls: ["../images/house-images/exterior_5.jpeg"],
 		timestamp: "00:00:00",
 	},
 	{
@@ -108,7 +108,7 @@ export const data = [
 			lat: "26.209080",
 			lng: "-80.112100",
 		},
-		imageUrls: [],
+		imgUrls: ["../images/house-images/exterior_6.jpeg"],
 		timestamp: "00:00:00",
 	},
 ];

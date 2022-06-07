@@ -6,6 +6,7 @@ import ForgotPassword from "./ForgotPassword/ForgotPassword";
 import Category from "./Category/Category";
 import CreateItem from "./CreateItem/CreateItem";
 import SingleItem from "./SingleItem/SingleItem";
+import Contact from "./Contact/Contact";
 import NotFound from "./NotFound/NotFound";
 
 export {
@@ -17,5 +18,6 @@ export {
 	Category,
 	CreateItem,
 	SingleItem,
+	Contact,
 	NotFound,
 };

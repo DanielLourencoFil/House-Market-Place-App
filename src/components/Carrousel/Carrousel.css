@@ -1,5 +1,19 @@
 .slider {
 	position: relative;
-	height: 35vh;
-	background-color: aquamarine;
+	width: inherit;
+	height: 40vh;
+	width: 100%;
+	transition: all 0.5s linear;
+	overflow-x: hidden;
+}
+.slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 40vh;
+	width: 100%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	transition: transfom 0.5s linear;
 }

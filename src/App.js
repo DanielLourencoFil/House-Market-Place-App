@@ -11,6 +11,7 @@ import {
 	CreateItem,
 	SingleItem,
 	NotFound,
+	Contact,
 } from "./pages";
 import { Navbar, PrivateRoute, Spinner } from "./components";
 
@@ -25,7 +26,7 @@ function App() {
 					<Routes>
 						<Route exact path="/" element={<Explore />} />
 						<Route path="/category/:categoryName" element={<Category />} />
-						{/* <Route path="/category/:categoryName" element={<Category />} /> */}
+						<Route path="/contact/:landLordId/" element={<Contact />} />
 						<Route
 							path="/category/:categoryName/:id"
 							element={<SingleItem />}

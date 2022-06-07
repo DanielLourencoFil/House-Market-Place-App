@@ -1,20 +1,31 @@
 import "./SingleItem.css";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Carrousel, Spinner } from "../../components";
+import { useEffect, useRef, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { Carrousel, ShareIcon, Spinner } from "../../components";
 //firebase
 import { db } from "../../firebase.config";
 import { collection, query, where, getDocs } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 import { toast } from "react-toastify";
+//leaflet
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+//swiper
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/swiper-bundle.css";
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 function SingleItem() {
 	const { categoryName, id } = useParams();
 	const [item, setItem] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
+	const [shareIconCopied, setShareIconCopied] = useState(false);
+	const auth = getAuth();
 
 	useEffect(() => {
-		console.log(id, categoryName);
+		// console.log(id, categoryName);
 		const fetch = async () => {
+			setIsLoading(true);
 			const feature = categoryName === "offers" ? "offer" : "type";
 			const category = categoryName === "offers" ? true : categoryName;
 			try {
@@ -40,7 +51,6 @@ function SingleItem() {
 		};
 		fetch();
 	}, []);
-	console.log(item);
 	if (isLoading) {
 		return <Spinner />;
 	} else {
@@ -55,11 +65,32 @@ function SingleItem() {
 			discountedPrice,
 			bedrooms,
 			bathrooms,
+			userRef,
+			geolocation,
 		} = item.data;
+		console.log(geolocation.lat, geolocation.lng, geolocation);
 		return (
 			<main className="main-section">
 				<div className="section-center single-item-wrapper">
-					<Carrousel />
+					<div className="single-item-carrousel-wrapper">
+						<p className={`link-copied ${shareIconCopied ? "active" : null}`}>
+							Link was copied on clipboard
+						</p>
+						<Swiper slidesPerView={1} pagination={{ clickable: true }}>
+							{imgUrls.map((url, index) => {
+								<SwiperSlide key={index}>
+									<div
+										className="swiperSliderDiv"
+										style={{
+											background: `url(${imgUrls[index]}) center/cover no-repeat`,
+										}}
+									></div>
+								</SwiperSlide>;
+							})}
+						</Swiper>
+						{/* <Carrousel /> */}
+						<ShareIcon cb={setShareIconCopied} />
+					</div>
 					<h1 className="single-item-name">
 						{name} - ${regularPrice?.toLocaleString("en-US")}
 					</h1>
@@ -78,11 +109,32 @@ function SingleItem() {
 					{furnished && <p className="more-features">Furnished</p>}
 					<div className="location-map">
 						<h4 className="location-title">Location</h4>
-						<div>Map</div>
+						<div className="leaflet-wrapper">
+							<MapContainer
+								style={{ height: "100%", width: "100%" }}
+								center={[geolocation.lat, geolocation.lng]}
+								zoom={13}
+								scrollWheelZoom={false}
+							>
+								{/* needs more code */}
+								<TileLayer
+									attribution='&copy; <a href="http://osm.org/copyrigh">OpenStreetMap</a> contributors'
+									url="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png"
+								/>
+								<Marker position={[geolocation.lat, geolocation.lng]}>
+									<Popup>{location}</Popup>
+								</Marker>
+							</MapContainer>
+						</div>
 					</div>
-					<button className="generic-btn-01 single-item-contact-btn">
-						Contact Landlord
-					</button>
+					{auth.currentUser?.uid !== userRef && (
+						<Link
+							className="generic-btn-01 single-item-contact-btn"
+							to={`/contact/${userRef}?listingName=${name}`}
+						>
+							Contact Landlord
+						</Link>
+					)}
 				</div>
 			</main>
 		);

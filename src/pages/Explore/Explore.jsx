@@ -5,6 +5,8 @@ import RentCategoryImage from "../../assets/categories/rentCategoryImage.jpg";
 import SellCategoryImage from "../../assets/categories/sellCategoryImage.jpg";
 import { Carrousel } from "../../components";
 
+import { data } from "../../listings";
+
 export default function Explore() {
 	return (
 		<main className="main-section">
@@ -12,7 +14,7 @@ export default function Explore() {
 				<h1 className="form-title">Explore</h1>
 				<div className="slider-wrapper">
 					<h4 className="secondary-title">Recommended</h4>
-					<Carrousel />
+					<Carrousel data={data} />
 				</div>
 				<div className="categories-wrapper">
 					<h4 className="secondary-title">Categories</h4>

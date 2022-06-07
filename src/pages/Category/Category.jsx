@@ -1,5 +1,4 @@
 import "./Category.css";
-import { data } from "../../listings";
 import { useState, useEffect } from "react";
 import { FaBath, FaBed } from "react-icons/fa";
 import { useParams, Link } from "react-router-dom";
@@ -28,7 +27,6 @@ function Category() {
 				//create reference to places collection
 				const itemsRef = collection(db, "listings");
 				//create a querry (order) agains te collection
-				console.log(itemsRef);
 				let q;
 				if (categoryName === "offers") {
 					q = query(
@@ -45,7 +43,6 @@ function Category() {
 						limit(10)
 					);
 				}
-				console.log(q);
 				//create an empty array to push items from collection
 				const itemsFromCollection = [];
 				const querrySnapshot = await getDocs(q);
@@ -70,7 +67,6 @@ function Category() {
 		};
 		fetch();
 	}, [categoryName]);
-	console.log(items);
 
 	const loadMoreItems = () => {
 		console.log("load more btn");

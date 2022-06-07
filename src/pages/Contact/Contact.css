@@ -1,0 +1,29 @@
+.contact {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	justify-content: center;
+	max-width: 500px;
+}
+.form-secondary-title {
+	margin: 0;
+}
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+.contact-message {
+	font-size: 1.1rem;
+	letter-spacing: var(--spacing-1);
+	outline-color: var(--color-grey-100);
+}
+.contact-message:focus {
+	outline-color: var(--color-grey-300);
+}
+.contact-form-btn-wrapper {
+	width: 100%;
+}
+.contact-form-btn {
+	width: 100%;
+}
