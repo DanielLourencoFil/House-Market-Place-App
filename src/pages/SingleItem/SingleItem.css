@@ -1,7 +1,7 @@
 .single-item-wrapper {
 	display: flex;
 	flex-direction: column;
-	gap: 0.75rem;
+	gap: 1.75rem;
 }
 .single-item-carrousel-wrapper {
 	width: 100%;
@@ -37,13 +37,15 @@
 	border-radius: var(--radius-2);
 }
 .link-copied {
-	width: 150px;
+	font-size: 0.625rem;
+	width: 100px;
 	position: absolute;
 	top: 0;
 	right: -100%;
-	color: var(--color-dark-900);
-	background-color: var(--color-secondary-500);
-	font-size: 1.1rem;
+	color: var(--color-grey-500);
+	background-color: var(--color-light-100);
+	border-radius: var(--radius-1);
+	box-shadow: var(--box-shadow-100);
 	padding: 0.35rem 1rem;
 	display: none;
 	z-index: 9;
@@ -53,12 +55,20 @@
 	display: block;
 	animation: show 2.5s;
 }
-
+.location-title {
+	margin-bottom: 1rem;
+}
 .leaflet-wrapper {
 	width: 100%;
 	height: 200px;
 	overflow-x: hidden;
 	margin-bottom: 3rem;
+}
+.swiper-slider-div {
+	width: 100%;
+	height: 300px;
+	background-color: aqua;
+	/* width: 600px; */
 }
 @media (min-width: 1024px) {
 	.leaflet-wrapper {
@@ -82,4 +92,35 @@
 		display: none;
 		right: -100%;
 	}
+}
+.swiper {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.swiper-slide img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }

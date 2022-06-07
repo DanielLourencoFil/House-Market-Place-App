@@ -12,8 +12,10 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 //swiper
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/swiper-bundle.css";
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/bundle";
+// SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 function SingleItem() {
 	const { categoryName, id } = useParams();
@@ -68,7 +70,7 @@ function SingleItem() {
 			userRef,
 			geolocation,
 		} = item.data;
-		console.log(geolocation.lat, geolocation.lng, geolocation);
+		console.log(imgUrls);
 		return (
 			<main className="main-section">
 				<div className="section-center single-item-wrapper">
@@ -76,16 +78,18 @@ function SingleItem() {
 						<p className={`link-copied ${shareIconCopied ? "active" : null}`}>
 							Link was copied on clipboard
 						</p>
-						<Swiper slidesPerView={1} pagination={{ clickable: true }}>
+						<Swiper className="mySwiper">
 							{imgUrls.map((url, index) => {
-								<SwiperSlide key={index}>
-									<div
-										className="swiperSliderDiv"
-										style={{
-											background: `url(${imgUrls[index]}) center/cover no-repeat`,
-										}}
-									></div>
-								</SwiperSlide>;
+								return (
+									<SwiperSlide>
+										<div
+											className="swiper-slider-div"
+											style={{
+												background: `url(${url}) center/cover no-repeat`,
+											}}
+										></div>
+									</SwiperSlide>
+								);
 							})}
 						</Swiper>
 						{/* <Carrousel /> */}
